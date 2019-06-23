@@ -6,12 +6,15 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.LoggerFactory;
 
 import java.util.logging.Logger;
 
 import static java.util.logging.Level.OFF;
 
 public class SeleniumTestFramework {
+
+    private final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(SeleniumTestFramework.class.getName());
 
     private WebDriver driver;
 
@@ -24,7 +27,7 @@ public class SeleniumTestFramework {
 
     @Before
     public void testSetUp() {
-        System.out.println("|===--  Test '" + testUnderExecution.getMethodName() + "' started |");
+        LOGGER.info("| >>>>  Test '" + testUnderExecution.getMethodName() + "' started <<<< |");
         initDriver();
     }
 
@@ -39,7 +42,7 @@ public class SeleniumTestFramework {
 
     @After
     public void testTearDown() {
-        System.out.println("|===--  Test '" + testUnderExecution.getMethodName() + "' finished |");
+        LOGGER.info("| >>>>  Test '" + testUnderExecution.getMethodName() + "' finished <<<< |");
         if (driver != null) {
             driver.quit();
         }

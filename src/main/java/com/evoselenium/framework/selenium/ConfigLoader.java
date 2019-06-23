@@ -1,15 +1,19 @@
 package com.evoselenium.framework.selenium;
 
 
+import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.jetbrains.annotations.NotNull;
-
 public enum ConfigLoader {
 
     INSTANCE;
+
+    private final Logger LOGGER = LoggerFactory.getLogger(ConfigLoader.class.getName());
 
     private final Properties properties;
 
@@ -24,8 +28,7 @@ public enum ConfigLoader {
         try (final InputStream stream = getClass().getClassLoader().getResourceAsStream("test.properties")) {
             properties.load(stream);
         } catch (IOException ex) {
-            System.out.println("Unable to read properties from 'test.properties' file");
-            System.out.println(ex); //todo: change to normal logging
+            LOGGER.error("Unable to read properties from 'test.properties' file", ex);
         }
     }
 

@@ -4,7 +4,6 @@ import com.evoselenium.framework.page.AbstractPageComponent;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ApplicationHeaderPage extends AbstractPageComponent {
 

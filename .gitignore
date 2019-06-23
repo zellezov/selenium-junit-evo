@@ -1,0 +1,6 @@
+#Intellij IDEA
+*.iml
+.idea
+
+#Generated folders
+target/
