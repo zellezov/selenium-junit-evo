@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 
 public class AlertPopup extends AbstractPageComponent {
 
-    private static final By ALERT_POPUP_ROOT = By.id("main_table");
+    private static final By ALERT_POPUP_ROOT = By.id("alert_dv");
 
     private static final By CLOSE = By.cssSelector(".alert_head_right");
 
@@ -43,7 +43,8 @@ public class AlertPopup extends AbstractPageComponent {
         assertThat("Alert message does not match expected", getAlertMessage(), is(message));
     }
 
-    public void clickOk() {
+    public ActionPromise clickOk() {
         getRootElement().findElement(OK).click();
+        return new ActionPromise(getContext());
     }
 }

@@ -11,11 +11,13 @@ public class ApplicationHeaderPage extends AbstractPageComponent {
 
     private static final By ACTIVE_MENU_ITEM = By.cssSelector(".a_menu_active");
 
+    private static final By LOGO = By.cssSelector(".page_header_logo");
+
     private static final By SEARCH = By.cssSelector("a[href$='/search/']");
 
     private static final By FAVORITES = By.cssSelector("a[href$='/favorites/']");
 
-    public ApplicationHeaderPage(TestContext context) {
+    ApplicationHeaderPage(TestContext context) {
         super(context);
     }
 
@@ -32,13 +34,18 @@ public class ApplicationHeaderPage extends AbstractPageComponent {
         return getRootElement().findElement(ACTIVE_MENU_ITEM).getAttribute("href");
     }
 
+    public CategoriesPage clickLogo() {
+        click(getRootElement(), LOGO);
+        return new CategoriesPage(getContext());
+    }
+
     public SearchPage openSearch() {
         getRootElement().findElement(SEARCH).click();
         return new SearchPage(getContext());
     }
 
     public FavoritesPage openFavorites() {
-        getRootElement().findElement(FAVORITES).click();
+        click(getRootElement(), FAVORITES);
         return new FavoritesPage(getContext());
     }
 }

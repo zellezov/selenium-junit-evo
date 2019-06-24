@@ -1,15 +1,14 @@
 package com.evoselenium.framework.page.ui;
 
-import com.evoselenium.framework.page.AbstractPageComponent;
 import com.evoselenium.framework.selenium.TestContext;
-import org.openqa.selenium.By;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class FavoritesPage extends AbstractPageComponent {
-
-    private static final By FAVORITES_PAGE_ROOT = By.cssSelector(".page_header");
+public class FavoritesPage extends FilterPage {
 
     FavoritesPage(TestContext context) {
         super(context);
@@ -18,6 +17,25 @@ public class FavoritesPage extends AbstractPageComponent {
     @Override
     public void verify() {
         assertThat(new ApplicationHeaderPage(getContext()).getActiveMenuItem().contains("favorites"), is(true));
-        waitForPageComponentElementVisible(FAVORITES_PAGE_ROOT);
+        waitForPageComponentElementVisible(FILTER_PAGE_ROOT);
+    }
+
+    private List<AdvertisementGroup> getAdvertisementGroups() {
+        return getRootElement().findElements(FILTER_RESULTS)
+                .stream()
+                .map(element -> new AdvertisementGroup(element, getContext()))
+                .collect(Collectors.toList());
+    }
+
+    public AdvertisementGroup getAdvertisementGroupByCategory(String category) {
+        return getAdvertisementGroups().stream()
+                .filter(group -> group.getCategory().contains(category))
+                .findFirst()
+                .orElseThrow(() -> new AssertionError("Unable to find group by category: '" + category + "'"));
+    }
+
+    public FavoritesPage verifyAdvertisementPresentInCategory(String category, String wording) {
+        getAdvertisementGroupByCategory(category).verifyAdvertisementPresentByWording(wording);
+        return this;
     }
 }
