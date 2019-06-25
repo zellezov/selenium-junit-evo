@@ -1,4 +1,4 @@
-package com.evoselenium.framework.page.ui;
+package com.evoselenium.framework.page.ui.advertisement;
 
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
@@ -20,7 +20,7 @@ public class AdvertisementGroup {
 
     private TestContext context;
 
-    AdvertisementGroup(WebElement rootElement, TestContext context) {
+    public AdvertisementGroup(WebElement rootElement, TestContext context) {
         this.rootElement = rootElement;
         this.context = context;
     }
@@ -37,12 +37,14 @@ public class AdvertisementGroup {
                 .collect(Collectors.toList());
     }
 
-    private boolean isAdvertisementPresent(String wording) {
+    public boolean isAdvertisementPresent(String wording) {
         return getAdvertisements().stream()
                 .anyMatch(advertisementRow -> advertisementRow.getWording().contains(wording));
     }
 
-    public void verifyAdvertisementPresentByWording(String wording) {
+    public AdvertisementGroup verifyAdvertisementPresentByWording(String wording) {
         assertThat("Unable to find advertisement", isAdvertisementPresent(wording), is(true));
+        return this;
     }
+
 }

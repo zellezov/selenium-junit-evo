@@ -7,8 +7,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
 public abstract class AbstractComponentBase {
 
     private final TestContext context;
@@ -43,7 +41,7 @@ public abstract class AbstractComponentBase {
         ((JavascriptExecutor) context.getDriver()).executeScript("arguments[0].scrollIntoView();", webElement);
     }
 
-    private void click(WebElement webElement) {
+    public void click(WebElement webElement) {
         WebElement element = context.getWait().until(ExpectedConditions.elementToBeClickable(webElement));
         scrollIntoView(webElement);
         element.click();

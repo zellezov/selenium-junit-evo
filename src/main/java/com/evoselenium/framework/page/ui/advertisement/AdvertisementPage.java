@@ -1,6 +1,7 @@
-package com.evoselenium.framework.page.ui;
+package com.evoselenium.framework.page.ui.advertisement;
 
 import com.evoselenium.framework.page.AbstractPageComponent;
+import com.evoselenium.framework.page.ui.ActionPromise;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

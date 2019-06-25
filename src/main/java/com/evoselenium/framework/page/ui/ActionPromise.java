@@ -1,12 +1,15 @@
 package com.evoselenium.framework.page.ui;
 
+import com.evoselenium.framework.page.ui.categories.CategoryPage;
+import com.evoselenium.framework.page.ui.results.FavoritesPage;
+import com.evoselenium.framework.page.ui.results.FilterPage;
 import com.evoselenium.framework.selenium.TestContext;
 
 public class ActionPromise {
 
     TestContext context;
 
-    ActionPromise(TestContext context) {
+    public ActionPromise(TestContext context) {
         this.context = context;
     }
 

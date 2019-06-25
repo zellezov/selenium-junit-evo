@@ -1,6 +1,7 @@
-package com.evoselenium.framework.page.ui;
+package com.evoselenium.framework.page.ui.categories;
 
 import com.evoselenium.framework.page.AbstractPageComponent;
+import com.evoselenium.framework.page.ui.ActionPromise;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class CategoryPage extends AbstractPageComponent {
 
     private static final String SUB_CATEGORY = ".a_category[title*='%s']";
 
-    CategoryPage(TestContext context) {
+    public CategoryPage(TestContext context) {
         super(context);
     }
 
@@ -28,7 +29,8 @@ public class CategoryPage extends AbstractPageComponent {
     }
 
     public ActionPromise openSubCategory(String subCategory) {
-        getRootElement().findElement(cssSelector(format(SUB_CATEGORY, subCategory))).click();
+        click(getRootElement(), cssSelector(format(SUB_CATEGORY, subCategory)));
         return new ActionPromise(getContext());
     }
+
 }

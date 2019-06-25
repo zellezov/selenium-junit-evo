@@ -1,9 +1,13 @@
-package com.evoselenium.framework.page.ui;
+package com.evoselenium.framework.page.ui.results;
 
 import com.evoselenium.framework.page.AbstractPageComponent;
+import com.evoselenium.framework.page.ui.ActionPromise;
+import com.evoselenium.framework.page.ui.advertisement.AdvertisementRow;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +22,9 @@ public class FilterPage extends AbstractPageComponent {
 
     private static final By ADD_TO_FAVORITES = By.id("a_fav_sel");
 
-    FilterPage(TestContext context) {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FilterPage.class.getName());
+
+    public FilterPage(TestContext context) {
         super(context);
     }
 
@@ -40,6 +46,7 @@ public class FilterPage extends AbstractPageComponent {
     }
 
     public AdvertisementRow getAdvertisementByIndex(int index) {
+        LOGGER.info("Get advertisement by index '" + index + "'");
         return getFilterResults().get(index);
     }
 
@@ -59,5 +66,12 @@ public class FilterPage extends AbstractPageComponent {
     public ActionPromise clickAddToFavorites() {
         click(getRootElement(), ADD_TO_FAVORITES);
         return new ActionPromise(getContext());
+    }
+
+    public String addAdvertisementToFavoritesByIndex(int index) {
+        String wording = getAdvertisementByIndex(index).select().getWording();
+        clickAddToFavorites().andGetAlertPopup(getContext())
+                .clickOk();
+        return wording;
     }
 }

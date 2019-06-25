@@ -1,6 +1,9 @@
 package com.evoselenium.framework.page.ui;
 
 import com.evoselenium.framework.page.AbstractPageComponent;
+import com.evoselenium.framework.page.ui.categories.CategoriesPage;
+import com.evoselenium.framework.page.ui.results.FavoritesPage;
+import com.evoselenium.framework.page.ui.results.SearchPage;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,7 +20,7 @@ public class ApplicationHeaderPage extends AbstractPageComponent {
 
     private static final By FAVORITES = By.cssSelector("a[href$='/favorites/']");
 
-    ApplicationHeaderPage(TestContext context) {
+    public ApplicationHeaderPage(TestContext context) {
         super(context);
     }
 
@@ -30,7 +33,7 @@ public class ApplicationHeaderPage extends AbstractPageComponent {
         return getElement(APPLICATION_HEADER_ROOT);
     }
 
-    String getActiveMenuItem() {
+    public String getActiveMenuItem() {
         return getRootElement().findElement(ACTIVE_MENU_ITEM).getAttribute("href");
     }
 
@@ -40,7 +43,7 @@ public class ApplicationHeaderPage extends AbstractPageComponent {
     }
 
     public SearchPage openSearch() {
-        getRootElement().findElement(SEARCH).click();
+        click(getRootElement(), SEARCH);
         return new SearchPage(getContext());
     }
 

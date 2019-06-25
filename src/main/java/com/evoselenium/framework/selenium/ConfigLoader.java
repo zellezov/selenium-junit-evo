@@ -40,6 +40,10 @@ public enum ConfigLoader {
         return properties.getProperty("host.name.url");
     }
 
+    public boolean isHeadless() {
+        return Boolean.valueOf(properties.getProperty("headless"));
+    }
+
     public String getDriverStayAlive() {
         return properties.getProperty("driver.stay.alive");
     }

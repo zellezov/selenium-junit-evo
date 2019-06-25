@@ -1,5 +1,6 @@
 package com.evoselenium.framework.selenium.driverfactory;
 
+import com.evoselenium.framework.selenium.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -20,10 +21,7 @@ public class FirefoxDriverFactory extends AbstractDriverFactory implements IDriv
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
         FirefoxOptions options = new FirefoxOptions()
-                .setAcceptInsecureCerts(true)
-                .setLegacy(false);
-        options.setCapability("specificationLevel", 1);
-
+                .setHeadless(ConfigLoader.get().isHeadless());
         return new FirefoxDriver(options);
     }
 }

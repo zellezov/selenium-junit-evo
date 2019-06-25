@@ -32,7 +32,7 @@ public class AlertPopup extends AbstractPageComponent {
     }
 
     public void clickClose() {
-        getRootElement().findElement(CLOSE).click();
+        click(getRootElement(), CLOSE);
     }
 
     private String getAlertMessage() {
@@ -44,7 +44,7 @@ public class AlertPopup extends AbstractPageComponent {
     }
 
     public ActionPromise clickOk() {
-        getRootElement().findElement(OK).click();
+        click(getRootElement(), OK);
         return new ActionPromise(getContext());
     }
 }
