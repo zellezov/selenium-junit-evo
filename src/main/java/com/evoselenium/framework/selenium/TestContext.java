@@ -9,12 +9,14 @@ import java.time.Duration;
 
 public class TestContext {
 
-    private TestContext context;
+    private Duration TIMEOUT_DURATION = Duration.ofSeconds(60);
+
+    private Duration POLL_INTERVAL = Duration.ofMillis(200);
 
     private WebDriver driver;
 
     public TestContext getContext() {
-        return context;
+        return this;
     }
 
     public WebDriver getDriver() {
@@ -27,8 +29,8 @@ public class TestContext {
 
     public FluentWait<WebDriver> getWait() {
         return new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(60))//todo parametrize it
-                .pollingEvery(Duration.ofMillis(200))//todo parametrize it
+                .withTimeout(TIMEOUT_DURATION)
+                .pollingEvery(POLL_INTERVAL)
                 .ignoring(StaleElementReferenceException.class, NoSuchElementException.class);
     }
 }

@@ -1,5 +1,6 @@
 package com.evoselenium.framework.selenium;
 
+import com.evoselenium.framework.selenium.driverfactory.DriverCommunicationsRule;
 import com.evoselenium.framework.selenium.driverfactory.DriverInitFactory;
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +16,9 @@ import static java.util.logging.Level.OFF;
 public class SeleniumTestFramework {
 
     private final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(SeleniumTestFramework.class.getName());
+
+    @Rule
+    public DriverCommunicationsRule driverCommunicationsRule = new DriverCommunicationsRule(this);
 
     private WebDriver driver;
 
@@ -43,12 +47,13 @@ public class SeleniumTestFramework {
     @After
     public void testTearDown() {
         LOGGER.info("| >>>>  Test '" + testUnderExecution.getMethodName() + "' finished <<<< |");
-        if (driver != null) {
-            driver.quit();
-        }
     }
 
     protected TestContext getContext() {
         return context;
+    }
+
+    public WebDriver getDriver() {
+        return context.getDriver();
     }
 }

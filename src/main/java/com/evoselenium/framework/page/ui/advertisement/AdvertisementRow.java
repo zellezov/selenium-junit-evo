@@ -33,9 +33,14 @@ public class AdvertisementRow {
     }
 
     public String getWording() {
-        return rootElement.findElement(WORDING)
-                .getText()
-                .substring(0, 50);
+        String wording = rootElement.findElement(WORDING)
+                .getText();
+        if (wording.length() > 50) {
+            wording = wording.substring(0, 50);
+        }
+        return wording;
+
+
     }
 
     public AdvertisementPage openDetails() {

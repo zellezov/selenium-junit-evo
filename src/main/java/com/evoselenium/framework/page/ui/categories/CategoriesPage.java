@@ -35,15 +35,15 @@ public class CategoriesPage extends AbstractPageComponent {
         return getElement(CATEGORIES_PAGE_ROOT);
     }
 
-    public ActionPromise openCategory(Category category) {
-        LOGGER.info("Open category '" + category + "'");
-        click(getRootElement(), cssSelector(format(CATEGORY, category.toString())));
+    public ActionPromise openCategory(AdvertisementCategory advertisementCategory) {
+        LOGGER.info("Open advertisementCategory '" + advertisementCategory + "'");
+        click(getRootElement(), cssSelector(format(CATEGORY, advertisementCategory.toString())));
         return new ActionPromise(getContext());
     }
 
-    public ActionPromise openSubCategory(Category category, String subCategory) {
-        LOGGER.info("Open sub-category '" + subCategory + "' in category '" + category + "'");
-        click(getRootElement(), xpath(format(CATEGORY_AND_SUB_CATEGORY, category.toString(), subCategory)));
+    public ActionPromise openSubCategory(AdvertisementCategory advertisementCategory, String subCategory) {
+        LOGGER.info("Open sub-advertisementCategory '" + subCategory + "' in advertisementCategory '" + advertisementCategory + "'");
+        click(getRootElement(), xpath(format(CATEGORY_AND_SUB_CATEGORY, advertisementCategory.toString(), subCategory)));
         return new ActionPromise(getContext());
     }
 

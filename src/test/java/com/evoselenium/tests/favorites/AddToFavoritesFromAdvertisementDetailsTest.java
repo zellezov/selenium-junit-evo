@@ -1,13 +1,15 @@
 package com.evoselenium.tests.favorites;
 
+import com.evoselenium.framework.categories.AddToFavorites;
 import com.evoselenium.framework.page.ui.advertisement.AdvertisementRow;
 import com.evoselenium.framework.page.ui.categories.CategoriesPage;
 import com.evoselenium.framework.selenium.SeleniumTestFramework;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.evoselenium.framework.page.ui.categories.Category.TRANSPORT;
+import static com.evoselenium.framework.page.ui.categories.AdvertisementCategory.TRANSPORT;
 
 public class AddToFavoritesFromAdvertisementDetailsTest extends SeleniumTestFramework {
 
@@ -18,16 +20,12 @@ public class AddToFavoritesFromAdvertisementDetailsTest extends SeleniumTestFram
      * Verify that it is possible to add advertisement to favorites from advertisement details page.
      * <p>
      * Test steps:
-     * 1. Go to 'Categories' page
-     * 2. Open category 'Transport'
-     * 3. Open sub-category 'Cars'
-     * 4. Select make 'Volvo' and get first advertisement in list
-     * 5. Capture advertisement wording and open details
-     * 6. Click 'Add to favorites' and get alert popup
-     * 7. Click 'OK' and open 'Favorites' page
-     * 8. Verify that advertisement is present in favorites
+     * 1. Open advertisement category 'Transport > Cars > Volvo'
+     * 2. Capture wording of first advertisement in list
+     * 3. Add advertisement to favorites, go to 'Favorites' page and verify it is present
      */
     @Test
+    @Category(AddToFavorites.class)
     public void testAddToFavoritesFromAdvertisementDetails() {
 
         LOGGER.info("1. Open advertisement category 'Transport > Cars > Volvo'");
@@ -43,7 +41,7 @@ public class AddToFavoritesFromAdvertisementDetailsTest extends SeleniumTestFram
         LOGGER.info("2. Capture wording of first advertisement in list");
         String wording = advertisement.getWording();
 
-        LOGGER.info("3. Add advertisement to favorites and verify it has been successfully added");
+        LOGGER.info("3. Add advertisement to favorites, go to 'Favorites' page and verify it is present");
         advertisement.openDetails()
                 .clickAddToFavorites()
                 .andGetAlertPopup(getContext())

@@ -43,7 +43,7 @@ public class AdvertisementGroup {
     }
 
     public AdvertisementGroup verifyAdvertisementPresentByWording(String wording) {
-        assertThat("Unable to find advertisement", isAdvertisementPresent(wording), is(true));
+        assertThat("Unable to find advertisement by wording: " + wording, isAdvertisementPresent(wording), is(true));
         return this;
     }
 

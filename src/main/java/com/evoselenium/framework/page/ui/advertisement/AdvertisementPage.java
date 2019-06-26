@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 
 public class AdvertisementPage extends AbstractPageComponent {
 
-    private static final By ADVERTISEMENT_PAGE_ROOT = By.id("page_main"); // todo bad id, repetitive in pages
+    private static final By ADVERTISEMENT_PAGE_ROOT = By.id("content_main_div");
 
-    private static final By ADD_TO_FAVORITES = By.id("a_fav");
+    private static final By ADD_TO_FAVORITES = By.xpath("../../../..//a[@id='a_fav']");
 
     public AdvertisementPage(TestContext context) {
         super(context);

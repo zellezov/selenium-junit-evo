@@ -1,15 +1,17 @@
 package com.evoselenium.tests.favorites;
 
+import com.evoselenium.framework.categories.AddToFavorites;
 import com.evoselenium.framework.page.ui.ApplicationHeaderPage;
-import com.evoselenium.framework.page.ui.results.FilterPage;
+import com.evoselenium.framework.page.ui.categories.AdvertisementCategory;
 import com.evoselenium.framework.page.ui.categories.CategoriesPage;
-import com.evoselenium.framework.page.ui.categories.Category;
+import com.evoselenium.framework.page.ui.results.FilterPage;
 import com.evoselenium.framework.selenium.SeleniumTestFramework;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.evoselenium.framework.page.ui.categories.Category.*;
+import static com.evoselenium.framework.page.ui.categories.AdvertisementCategory.*;
 
 public class AddToFavoritesFromDifferentCategoriesTest extends SeleniumTestFramework {
 
@@ -26,6 +28,7 @@ public class AddToFavoritesFromDifferentCategoriesTest extends SeleniumTestFrame
      * 4. Go to 'Favorites' page and verify three advertisements from different categories present
      */
     @Test
+    @Category(AddToFavorites.class)
     public void testAddToFavoritesFromDifferentCategories() {
 
         LOGGER.info("1. Add advertisement from 'Construction > Other' category to favorites");
@@ -46,7 +49,7 @@ public class AddToFavoritesFromDifferentCategoriesTest extends SeleniumTestFrame
                 .verifyAdvertisementPresentInCategory(FOR_CHILDREN.toString(), otherForChildren);
     }
 
-    private String addAdvertisementToFavorites(Category category, int index) {
+    private String addAdvertisementToFavorites(AdvertisementCategory category, int index) {
         LOGGER.info("Open advertisement category '" + category + " > Other' and get filter result page");
         final FilterPage filterPage = new CategoriesPage(getContext())
                 .openSubCategory(category, "Other")

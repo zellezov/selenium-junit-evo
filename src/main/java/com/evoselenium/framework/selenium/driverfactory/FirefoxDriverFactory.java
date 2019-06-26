@@ -4,7 +4,6 @@ import com.evoselenium.framework.selenium.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 
 import java.util.Properties;
 
@@ -17,7 +16,7 @@ public class FirefoxDriverFactory extends AbstractDriverFactory implements IDriv
 
     @Override
     public WebDriver getWebDriver() {
-        System.setProperty("webdriver.gecko.driver", "src\\main\\java\\com\\evoselenium\\framework\\selenium\\driverfactory\\drivers\\geckodriver.exe"); //todo: set shorter path
+        System.setProperty("webdriver.gecko.driver", "src\\helpingTools\\drivers\\geckodriver.exe");
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
         FirefoxOptions options = new FirefoxOptions()

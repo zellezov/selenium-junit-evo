@@ -1,6 +1,7 @@
-package com.evoselenium.framework.page.ui.results;
+package com.evoselenium.framework.page.ui;
 
 import com.evoselenium.framework.page.AbstractPageComponent;
+import com.evoselenium.framework.page.ui.results.SearchResultsPage;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -50,8 +50,10 @@ public class FilterPage extends AbstractPageComponent {
         return getFilterResults().get(index);
     }
 
-    public void selectAdvertisementByIndex(int index) {
-        getAdvertisementByIndex(index).select();
+    public String selectAdvertisementByIndex(int index) {
+        AdvertisementRow advertisement = getAdvertisementByIndex(index);
+        advertisement.select();
+        return advertisement.getWording();
     }
 
     public ActionPromise selectAdvertisementByWording(String wording) {

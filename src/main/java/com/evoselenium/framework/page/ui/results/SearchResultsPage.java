@@ -12,7 +12,7 @@ public class SearchResultsPage extends FilterPage {
 
     private static final By SEARCH_RESULTS_ROOT = By.id("page_main");
 
-    SearchResultsPage(TestContext context) {
+     public SearchResultsPage(TestContext context) {
         super(context);
     }
 

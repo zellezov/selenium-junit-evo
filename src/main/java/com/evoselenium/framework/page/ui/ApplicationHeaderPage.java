@@ -3,7 +3,6 @@ package com.evoselenium.framework.page.ui;
 import com.evoselenium.framework.page.AbstractPageComponent;
 import com.evoselenium.framework.page.ui.categories.CategoriesPage;
 import com.evoselenium.framework.page.ui.results.FavoritesPage;
-import com.evoselenium.framework.page.ui.results.SearchPage;
 import com.evoselenium.framework.selenium.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

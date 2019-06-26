@@ -1,6 +1,6 @@
 package com.evoselenium.framework.page.ui.categories;
 
-public enum Category {
+public enum AdvertisementCategory {
 
     JOB_AND_BUSINESS("Job and business"),
     TRANSPORT("Transport"),
@@ -17,7 +17,7 @@ public enum Category {
 
     private String category;
 
-    Category(String category) {
+    AdvertisementCategory(String category) {
         this.category = category;
     }
 
