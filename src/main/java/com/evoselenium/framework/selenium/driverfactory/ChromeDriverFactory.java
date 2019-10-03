@@ -16,7 +16,7 @@ public class ChromeDriverFactory extends AbstractDriverFactory implements IDrive
 
     @Override
     public WebDriver getWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "src\\helpingTools\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/helpingTools/drivers/chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
         if (ConfigLoader.get().isHeadless()) {
