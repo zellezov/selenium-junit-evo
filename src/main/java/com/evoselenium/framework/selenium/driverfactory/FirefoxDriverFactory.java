@@ -16,7 +16,7 @@ public class FirefoxDriverFactory extends AbstractDriverFactory implements IDriv
 
     @Override
     public WebDriver getWebDriver() {
-        System.setProperty("webdriver.gecko.driver", "src\\helpingTools\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src/helpingTools/drivers/geckodriver.exe");
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
         FirefoxOptions options = new FirefoxOptions()
