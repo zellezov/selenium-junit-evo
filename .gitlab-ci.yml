@@ -1,0 +1,5 @@
+default:
+    image: java
+    
+job:
+    script: "mvn clean test"
