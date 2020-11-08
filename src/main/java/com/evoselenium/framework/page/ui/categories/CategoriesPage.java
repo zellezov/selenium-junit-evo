@@ -18,7 +18,7 @@ public class CategoriesPage extends AbstractPageComponent {
 
     private static final String CATEGORY = ".main_head2 .a1[title*='%s']";
 
-    private static final String CATEGORY_AND_SUB_CATEGORY = "//a[text()='%s']/../../../../div/a[text()='%s']";
+    private static final String CATEGORY_AND_SUB_CATEGORY = "//a[text()='%s']/../../../../div[last()]/a[text()='%s']";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CategoriesPage.class.getName());
 

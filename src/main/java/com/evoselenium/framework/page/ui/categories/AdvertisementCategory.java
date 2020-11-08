@@ -5,7 +5,7 @@ public enum AdvertisementCategory {
     JOB_AND_BUSINESS("Job and business"),
     TRANSPORT("Transport"),
     REAL_ESTATE("Real estate"),
-    CONSTRUCTION("Construction"),
+    CONSTRUCTION("Сonstruction"),
     ELECTRONICS("Electronics"),
     CLOTHES_FOOTWEAR("Clothes, footwear"),
     HOME_STUFF("Home stuff"),
@@ -13,7 +13,7 @@ public enum AdvertisementCategory {
     FOR_CHILDREN("For children"),
     ANIMALS("Animals"),
     AGRICULTURE("Agriculture"),
-    ENTERTAINMENT("Entertainment");
+    REST_HOBBIES("Rest, hobbies");
 
     private String category;
 

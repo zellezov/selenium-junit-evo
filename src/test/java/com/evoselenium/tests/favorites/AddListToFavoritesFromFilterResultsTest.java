@@ -9,7 +9,7 @@ import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.evoselenium.framework.page.ui.categories.AdvertisementCategory.ENTERTAINMENT;
+import static com.evoselenium.framework.page.ui.categories.AdvertisementCategory.REST_HOBBIES;
 
 public class AddListToFavoritesFromFilterResultsTest extends SeleniumTestFramework {
 
@@ -32,7 +32,7 @@ public class AddListToFavoritesFromFilterResultsTest extends SeleniumTestFramewo
 
         LOGGER.info("1. Open advertisement category 'Entertainment > Music, instrument, education > El. guitars'");
         final FilterPage entertainment = new CategoriesPage(getContext())
-                .openSubCategory(ENTERTAINMENT, "Music, instrument, education")
+                .openSubCategory(REST_HOBBIES, "Music, instrument, education")
                 .andGetCategoryPage(getContext())
                 .openSubCategory(EL_GUITARS)
                 .andGetFilterPage(getContext());
